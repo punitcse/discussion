@@ -1,0 +1,14 @@
+<table>
+  <%= for topic <- @topics do %>
+    <tr>
+      <td> <%= topic.title %> </td>
+      <td> <%= link "edit", to: topic_path(@conn, :edit, topic)%></td>
+    </tr>
+  <% end %>
+</table>
+
+<div>
+  <%= link to: topic_path(@conn, :new) do %>
+    <div>Add Topic</div>
+  <% end %>
+</div>

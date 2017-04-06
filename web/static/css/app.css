@@ -1,0 +1,14 @@
+/* This file is for your main application css. */
+
+.form-group {
+  margin-bottom: 25px;
+}
+.form-group .btn-primary {
+  margin-top: 15px;
+  position: relative;
+}
+.form-group span.help-block {
+  color: red;
+  position: absolute;
+  margin: 5px 0px 0px;
+}

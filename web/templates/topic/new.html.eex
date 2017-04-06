@@ -1,0 +1,10 @@
+<div class="jumbotron">
+  <h2><%= gettext "Add new %{name}", name: "Topic" %></h2>
+  <%= form_for @changeset, topic_path(@conn, :create), fn f -> %>
+    <div class="form-group">
+      <%= text_input f, :title, placeholder: "title", class: 'form-control' %>
+      <%= error_tag f, :title %>
+      <%= submit "save topics", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
