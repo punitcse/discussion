@@ -6,11 +6,16 @@ defmodule Discuss.AuthController do
 
   def callback(%{assigns: %{ueberauth_auth: auth} } = conn, _params) do
     user_params = %{ token: auth.credentials.token, email: auth.info.email, provider: "github" }
-    IO.inspect(user_params)
+
     changeset = User.changeset(%User{}, user_params)
-    IO.inspect("+++++++++++++++++++++++++++++")
-    IO.inspect(changeset)
     signin(conn, changeset)
+  end
+
+  def signout(conn, _params) do
+    conn
+    |> configure_session(drop: true)
+    |> put_flash(:info, "You have been successfully logged out")
+    |> redirect(to: topic_path(conn, :index))
   end
 
   defp signin(conn, changeset) do
